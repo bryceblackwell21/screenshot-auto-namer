@@ -1,7 +1,6 @@
 """File renaming and sorting — handles naming, moving, and conflict resolution."""
 
 import shutil
-from datetime import datetime
 from pathlib import Path
 
 from analyzer import AnalysisResult
@@ -10,14 +9,11 @@ from analyzer import AnalysisResult
 def build_new_filename(result: AnalysisResult, original_path: Path) -> str:
     """Build a new filename from analysis result.
 
-    Format: YYYY-MM-DD_descriptive-slug.ext
-    Uses the file's modification date for the date prefix.
+    Format: descriptive-slug.ext
+    No date prefix — the filesystem's created/modified dates handle that.
     """
-    # Use file modification time for the date prefix
-    mod_time = original_path.stat().st_mtime
-    date_str = datetime.fromtimestamp(mod_time).strftime("%Y-%m-%d")
     ext = original_path.suffix.lower()
-    return f"{date_str}_{result.filename_slug}{ext}"
+    return f"{result.filename_slug}{ext}"
 
 
 def resolve_conflict(dest_path: Path) -> Path:

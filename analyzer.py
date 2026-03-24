@@ -23,7 +23,7 @@ ANALYSIS_PROMPT = """Analyze this screenshot and provide a structured response f
 
 Return a JSON object with exactly these fields:
 {
-  "filename_slug": "a-short-descriptive-slug",
+  "filename_slug": "app-specific-content-detail",
   "category": "category-slug",
   "description": "One sentence describing what's shown",
   "confidence": 0.95
@@ -31,10 +31,14 @@ Return a JSON object with exactly these fields:
 
 Rules for filename_slug:
 - Lowercase, hyphen-separated, no spaces or special characters
-- 3-8 words that describe the SPECIFIC content (not generic)
-- Include the app/context if recognizable (e.g. "vscode-", "chrome-", "slack-")
-- Good: "vscode-python-debug-breakpoint", "slack-team-standup-thread"
-- Bad: "screenshot", "image", "computer-screen"
+- 3-5 words that describe the SPECIFIC content (not generic)
+- ALWAYS lead with the app or context name if recognizable (e.g. "vscode-", "chrome-", "slack-", "figma-")
+- Focus on what makes this screenshot UNIQUE — the specific feature, page, error, conversation topic, etc.
+- Do NOT include dates unless a date shown in the content is central to the screenshot's meaning (e.g. a calendar event, a dated report)
+- Do NOT use generic words like "screenshot", "image", "screen", "view", "window"
+- Each screenshot of different content MUST produce a different slug — be specific enough to distinguish
+- Good: "vscode-python-debug-breakpoint", "slack-standup-thread", "figma-landing-hero-section", "chrome-anthropic-api-docs"
+- Bad: "screenshot", "code-editor", "chat-conversation", "web-page", "2025-03-24-slack-message"
 
 Rules for category (pick the best fit, or create a new lowercase-hyphen slug):
 - code: Code editors, terminals, IDE output, git diffs

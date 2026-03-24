@@ -87,7 +87,7 @@ When disabled, the plist is removed. This is the same pattern used by apps like 
 
 **API:** Anthropic Claude Sonnet (vision) — best cost/quality tradeoff for image analysis (~$3/1M input tokens, ~1600 tokens per image ≈ $0.005/screenshot).
 
-**Filename format:** `YYYY-MM-DD_descriptive-slug.ext` (date from file mod time)
+**Filename format:** `descriptive-slug.ext` — no date prefix (filesystem created/modified dates handle chronology). Slug is app-first, 3-5 words, specific to content.
 
 **Category detection:** Claude auto-detects from content. Suggested categories: code, email, chat, social-media, documentation, design, browser, spreadsheet, presentation, settings, error. Claude can create new slugs if nothing fits.
 
@@ -96,13 +96,13 @@ When disabled, the plist is removed. This is the same pattern used by apps like 
 ```
 ~/Screenshots/
 ├── code/
-│   └── 2026-03-24_vscode-python-debug-config.png
+│   └── vscode-python-debug-breakpoint.png
 ├── email/
-│   └── 2026-03-24_gmail-project-update-thread.png
+│   └── gmail-project-update-thread.png
 ├── design/
-│   └── 2026-03-24_figma-landing-page-mockup.png
-└── uncategorized/
-    └── 2026-03-24_misc-capture.png
+│   └── figma-landing-hero-section.png
+└── chat/
+    └── slack-standup-thread.png
 ```
 
 ---
