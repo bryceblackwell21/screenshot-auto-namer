@@ -1,4 +1,4 @@
-# Screenshot Auto-Namer & Sorter
+ffor# Screenshot Auto-Namer & Sorter
 
 CLI tool that uses Claude's Vision API to analyze screenshot content, generate descriptive filenames, and sort files into topic-based folders.
 
