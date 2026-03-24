@@ -24,7 +24,7 @@ from analyzer import analyze_screenshot
 from renamer import move_screenshot
 
 # Load .env file if present (for ANTHROPIC_API_KEY)
-load_dotenv()
+load_dotenv(override=True)
 
 # Supported image extensions (macOS screenshot formats)
 SCREENSHOT_EXTENSIONS = {".png", ".jpg", ".jpeg", ".tiff", ".heic", ".webp"}
